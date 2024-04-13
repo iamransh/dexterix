@@ -4,6 +4,7 @@ export const UserSchema = z.object({
     email: z.string().email(),
     name: z.string().optional(),
     isMentor: z.boolean().optional(),
+    isAdmin: z.boolean().optional(),
     status: z.enum(['PENDING', 'ACCEPTED', 'REJECTED']).optional(),
     phone: z.string().optional(),
     password: z.string().optional(),
@@ -13,11 +14,4 @@ export const UserSchema = z.object({
 });
 
 export type UserType = z.infer<typeof UserSchema>;
-
-export const AdminSchema = z.object({
-    email: z.string().email(),
-    password: z.string(),
-});
-
-export type AdminType = z.infer<typeof AdminSchema>;
 

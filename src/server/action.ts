@@ -3,8 +3,6 @@ import { error } from "console";
 import {
   UserType,
   UserSchema,
-  AdminType,
-    AdminSchema,
 } from "../../schema/schemaTypes";
 import prisma from "../lib/prisma";
 
@@ -118,7 +116,7 @@ export async function GetUser(email: string){
     };
 }
 
-export async function AdminSignUp(data: AdminType){
+export async function AdminSignUp(data: UserType){
     const validation = UserSchema.safeParse(data);
     if (!validation.success) {
     throw new Error("Validation error");
@@ -132,7 +130,7 @@ export async function AdminSignUp(data: AdminType){
     if (user) {
         return {
             status: false,
-            message: "Admin already exists",
+            message: "User already exists",
             data: user
         };
     }
@@ -140,6 +138,7 @@ export async function AdminSignUp(data: AdminType){
     data:{
         email,
         password,
+        isAdmin: true,
     }
     });
     if(!newUser){
@@ -154,28 +153,5 @@ export async function AdminSignUp(data: AdminType){
         status: true,
         message: "Admin created",
         data: newUser
-    };
-}
-
-export async function AdminLogin(email: string, password: string){
-    const user = await prisma?.user.findUnique({
-        where: {
-            email,
-            password
-        },
-    });
-    if(!user){
-        console.log("Access Denied")
-        return {
-            status: false,
-            message: "User not found",
-            data: undefined
-        };
-    }
-    console.log("Access Granted")
-    return {
-        status: true,
-        message: "User found",
-        data: user
     };
 }
