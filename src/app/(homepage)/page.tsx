@@ -12,6 +12,7 @@ import { Mentor_grid } from "../mentors/_components/Mentor_grid";
 import { AccordionDemo } from "./_components/Accordian";
 import Footer from "../_components/Footer";
 import { CardHoverEffectDemo } from "./_components/Card";
+import Colleges from "./_components/Colleges";
 
 export default function Home() {
   return (
@@ -81,7 +82,7 @@ export default function Home() {
         </div>
       </div>
       <div className="w-full flex lg:flex-row flex-col my-10 px-5 sm:px-20">
-        <div className="w-full lg:w-[60%] lg:px-5 text-[#33C693] text-4xl my-2">Unlock Your Study Abroad Potential with Mentra&apos;s customised Services</div>
+        <div className="w-full lg:w-[60%] lg:px-5 text-[#33C693] font-estrella text-4xl my-2">Unlock Your Study Abroad Potential with Mentra&apos;s customised Services</div>
         <div className="w-full lg:w-[40%] lg:min-w-[450px] my-2">Here, affordability meets reliability. We understand the college application process is a monumental step, and it shouldn&apos;t come with a monumental price tag. At Mentra, high school students gain access to indispensable advice from university students who have recently navigated the same path.</div>
       </div>
       <div className="flex flex-col max-w-[1000px] my-10 justify-center items-center">
@@ -96,11 +97,12 @@ export default function Home() {
       <div className="w-full flex flex-col items-center gap-3 my-5 px-5">
         <div className="text-center">From acceptance letters to scholarships</div>
         <div className="text-4xl font-bold text-center">Learn from those who have done it</div>
+        <Colleges/>
       </div>
       <div className="w-full flex flex-col items-center gap-3 my-5 px-5">
-        <div className="text-center">FAQ&apos;s</div>
-        <div className="text-4xl font-bold text-center text-[#33C693]">Frequently Asked Questions</div>
-        <div className="w-full flex flex-wrap px-5 sm:px-20 justify-evenly">
+        <div className="text-center font-bold">FAQ&apos;s</div>
+        <div className="text-4xl font-estrella text-center text-[#33C693]">Frequently Asked Questions</div>
+        <div className="w-full flex flex-wrap px-5 sm:px-20 justify-evenly mb-10">
           <AccordionDemo question={'What is Mentra?'} answer={'Answer'} />
           <AccordionDemo question={'What is Mentra?'} answer={'Answer'} />
           <AccordionDemo question={'What is Mentra?'} answer={'Answer'} />
@@ -108,7 +110,7 @@ export default function Home() {
         </div>
         <Button
             asChild
-            className="text-xl rounded-full bg-gradient-to-r from-primary to-secondary px-4 font-normal py-1 h-fit"
+            className="text-lg rounded-2xl bg-gradient-to-r from-primary to-secondary px-8 py-1 h-fit"
           >
             <Link href={"/mentors"}>View All FAQs</Link>
         </Button>

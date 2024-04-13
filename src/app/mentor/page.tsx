@@ -7,6 +7,7 @@ import { Navbar } from "../_components/Navbar";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
+import Footer from "../_components/Footer";
 
 
 export default function Page() {
@@ -50,7 +51,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col-reverse md:flex-row-reverse my-10 px-6 lg:px-20 items-center justify-between">
+      <div className="w-full flex flex-col-reverse md:flex-row-reverse my-10 mb-20 px-6 lg:px-20 items-center justify-between">
         <div className="md:w-[50%] w-full flex flex-col gap-6 px-0 md:px-5">
           <div className="text-black text-4xl font-bold md:block hidden">Mentra Ensures</div>
           <div className="md:block hidden">A seamless connection with students, an easy-to-use interface for managing your services, and a reliable payment system that rewards your dedication with proper compensation.<br/><br/> Join us at Mentra, where you can transform your university experience into an enriching mentorship that pays.</div>
@@ -84,7 +85,7 @@ export default function Page() {
             </div>
         </div>
       </div>
-      
+      <Footer/>
     </div>
   );
 }
