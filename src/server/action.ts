@@ -5,7 +5,7 @@ import {
   UserSchema,
 } from "../../schema/schemaTypes";
 import prisma from "../lib/prisma";
-import { clerkClient } from "@clerk/nextjs";
+import { clerkClient, currentUser } from "@clerk/nextjs";
 
 export async function CreateUser(data: UserType) {
     const validation = UserSchema.safeParse(data);
@@ -58,16 +58,19 @@ export async function MentorSignUp(data: UserType){
     throw new Error("Validation error");
     }
     const { email, name, phone, password, about, profession, experience   } = data;
+    const users = await clerkClient.users.getUserList({
+        emailAddress: [email]
+    });
     const user = await prisma?.user.findUnique({
     where: {
         email,
     },
     });
-    if (user) {
+    if (users || user) {
         return {
             status: false,
             message: "User already exists",
-            data: user
+            data: users
         };
     }
     const newUser = await prisma?.user.create({
