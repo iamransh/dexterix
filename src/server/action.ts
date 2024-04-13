@@ -130,7 +130,7 @@ export async function AdminSignUp(data: UserType){
     if (user) {
         return {
             status: false,
-            message: "User already exists",
+            message: "Admin already exists",
             data: user
         };
     }

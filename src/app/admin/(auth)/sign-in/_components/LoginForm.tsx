@@ -25,7 +25,7 @@ export default function SignInForm() {
         console.log(user.message);
         return;
       }
-      if(user.data?.isMentor&&user.data?.status==="ACCEPTED"){
+      if(user.data?.isAdmin){
       const result = await signIn.create({
         identifier: emailAddress,
         password,
@@ -33,6 +33,7 @@ export default function SignInForm() {
       if (result.status === "complete") {
         console.log(result);
         await setActive({ session: result.createdSessionId });
+        router.push("/admin/dashboard");
       }
       else {
         /*Investigate why the sign-in hasn't completed */

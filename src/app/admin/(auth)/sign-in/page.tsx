@@ -20,8 +20,8 @@ export default function Page() {
         width={150}
         height={150}
       />
-      <div className="bg-primary text-white md:w-[40%] w-full md:min-w-[400px] p-16 flex flex-col gap-6 justify-between items-center">
-        <div className="w-2/3 mt-10 flex flex-col items-center gap-6 min-w-[250px]">
+      <div className="bg-primary text-white md:w-[40%] w-full md:min-w-[400px] p-16 flex flex-col gap-6 justify-center items-center">
+        <div className="w-2/3 flex flex-col items-center gap-6 min-w-[250px]">
           <h1 className="font-bold text-3xl text-center">Admin Login</h1>
           <div className="w-full" id="sign-in">
             <SignedOut>
@@ -33,11 +33,6 @@ export default function Page() {
             </SignedIn>
           </div>
           </div>
-        <div className="flex w-full md:justify-between justify-center gap-4 flex-wrap">
-
-          <p className="text-center">Dont have an account?</p>
-          <Link className="underline font-bold text-center" href={"/mentor/sign-up"}>Register Now</Link>
-        </div>
       </div>
     </div>
   );
