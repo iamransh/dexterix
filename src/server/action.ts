@@ -5,6 +5,7 @@ import {
   UserSchema,
 } from "../../schema/schemaTypes";
 import prisma from "../lib/prisma";
+import { clerkClient } from "@clerk/nextjs";
 
 export async function CreateUser(data: UserType) {
     const validation = UserSchema.safeParse(data);
@@ -154,4 +155,69 @@ export async function AdminSignUp(data: UserType){
         message: "Admin created",
         data: newUser
     };
+}
+
+export async function getMentors(){
+    const mentors = await prisma?.user.findMany({
+        where:{
+            isMentor: true
+        }
+    })
+    return {
+        status: "success",
+        message: "mentors fetched successfully",
+        data: mentors
+    }
+}
+
+export async function getMentor(id:string){
+    const mentor = await prisma?.user.findUnique({
+        where:{
+            id
+        }
+    })
+    return {
+        status: "success",
+        message: "mentor fetched successfully",
+        data: mentor
+    }
+}
+
+export async function approve(email:string, password: string){
+
+    try{
+        try {
+            const user = await clerkClient.users.createUser({
+                emailAddress: [email],
+                password
+            }) 
+        } catch (error:any) {
+            return {
+                status: 'failed',
+                message: "error creating user in clerk",
+                data: error.message
+            }
+        }
+        const mentor = await prisma?.user.update({
+            where: {
+                email
+            },
+            data:{
+                status: 'ACCEPTED'
+            }
+        })
+        return {
+            status: "success",
+            message: "user approved successfully",
+            data: mentor
+        }
+
+    }catch(e:any){
+        return {
+            status: 'failed',
+            message: 'error approving user',
+            data: e.message 
+        }
+    }
+
 }
