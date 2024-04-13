@@ -1,5 +1,4 @@
 import {z} from 'zod';
-import mongoose from 'mongoose';
 
 export const UserSchema = z.object({
     email: z.string().email(),
@@ -14,3 +13,11 @@ export const UserSchema = z.object({
 });
 
 export type UserType = z.infer<typeof UserSchema>;
+
+export const AdminSchema = z.object({
+    email: z.string().email(),
+    password: z.string(),
+});
+
+export type AdminType = z.infer<typeof AdminSchema>;
+
