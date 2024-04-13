@@ -1,0 +1,47 @@
+
+.cl-internal-b3fm6y{
+    display: none;
+}
+.cl-card{
+padding: 0 ;
+background-color: transparent;
+box-shadow: none;
+}
+.cl-header{
+    display: none;
+}
+.cl-socialButtonsBlockButton{
+    background-color: black;
+    color: white;
+}
+.cl-internal-mdg29y{
+    border: 1px solid black;
+}
+.cl-formButtonPrimary{
+    background-color: #55DC93;
+    color: white;
+
+}
+.cl-formButtonPrimary:hover{
+background: rgba(0, 0, 0, 0.562);
+}
+.cl-footer{
+    color: white;
+    font-weight: bold;
+}
+.cl-footerActionLink{
+    color: white;
+}
+.cl-internal-1xpzc82{
+    color: white
+}
+.cl-footerActionText{
+    color: white;
+}
+
+.cl-identityPreviewText{
+    color: white;
+}
+.cl-formFieldSuccessText{
+    color:white
+}
