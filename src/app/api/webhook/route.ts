@@ -11,6 +11,7 @@ export async function POST(req: NextRequest) {
       const data: UserType = {
         email: emails[0].email_address,
       };
+      console.log("user data: ", data);
       const user = await CreateUser(data);
       if (!user) {
         return new NextResponse(`Error: User not created`, { status: 500 });
